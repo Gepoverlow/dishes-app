@@ -1,3 +1,5 @@
+const checkIngredient = require("../modules/logic.js");
+
 let arrayOfRecipes = [
   {
     name: "Arroz con Pollo",
@@ -50,14 +52,11 @@ let totalIngredients = [
   "Lentejas",
   "Ajo",
 ];
-let currentIngedients = ["Arroz", "Pollo"];
 
-function checkIngredient(dish, ingredient) {
-  return dish.ingredients.includes(`${ingredient}`) ? true : false;
-}
+test("check if ingredient is on recipe", () => {
+  expect(checkIngredient(arrayOfRecipes[0], "Arroz")).toBe(true);
+});
 
-function filterIngredients(ingredients, possibleDishes) {
-  for (let i = 0; i < ingredients.length; i++) {}
-}
-
-module.exports = checkIngredient;
+test("check if ingredient is not on recipe", () => {
+  expect(checkIngredient(arrayOfRecipes[0], "Ajo")).toBe(false);
+});
