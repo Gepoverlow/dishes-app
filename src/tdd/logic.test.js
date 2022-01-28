@@ -53,22 +53,6 @@ let totalIngredients = [
   "Ajo",
 ];
 
-// test("check if 1st dish ingredient is on recipe", () => {
-//   expect(checkIngredient(arrayOfRecipes[0], "Arroz")).toBe(true);
-// });
-
-// test("check if 1st dish ingredient is not on recipe", () => {
-//   expect(checkIngredient(arrayOfRecipes[0], "Ajo")).toBe(false);
-// });
-
-// test("check if 3rd dish ingredient is on recipe", () => {
-//   expect(checkIngredient(arrayOfRecipes[2], "Carne Picada")).toBe(true);
-// });
-
-// test("check if 4th ingredient is not on recipe", () => {
-//   expect(checkIngredient(arrayOfRecipes[3], "Ajo")).toBe(false);
-// });
-
 test("testing function", () => {
   expect(filterDishes("Fideos")).toEqual([
     "Fideos con Salsa",

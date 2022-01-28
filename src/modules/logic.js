@@ -1,19 +1,19 @@
 let arrayOfRecipes = [
   {
     name: "Arroz con Pollo",
-    ingredients: ["Arroz", "Pollo", "Sal"],
+    ingredients: ["Arroz", "Pollo"],
   },
   {
     name: "Fideos con Salsa",
-    ingredients: ["Fideos", "Salsa", "Sal"],
+    ingredients: ["Fideos", "Salsa"],
   },
   {
     name: "Hamburgesas",
-    ingredients: ["Carne Picada", "Pan", "Cebolla", "Sal"],
+    ingredients: ["Carne Picada", "Pan", "Cebolla"],
   },
   {
     name: "Ensalada de primavera",
-    ingredients: ["Fideos", "Mayonesa", "Atun", "Choclo", "Sal"],
+    ingredients: ["Fideos", "Mayonesa", "Atun", "Choclo"],
   },
 ];
 
@@ -49,22 +49,23 @@ let totalIngredients = [
   "Patata",
   "Lentejas",
   "Ajo",
+  "Sal",
 ];
-let currentIngedients = ["Arroz", "Pollo"];
-let availableDishes = [];
 
-function checkIngredient(dish, ingredient) {
-  return dish.ingredients.includes(`${ingredient}`) ? true : false;
+function containsAll(needed, owned) {
+  return needed.ingredients.every((i) => owned.includes(i));
 }
 
-function filterDishes(ingredient) {
-  let dishes = [];
-  for (let i = 0; i < arrayOfRecipes.length; i++) {
-    if (checkIngredient(arrayOfRecipes[i], ingredient)) {
-      dishes.push(arrayOfRecipes[i].name);
-    }
-  }
-  return dishes;
+console.log(containsAll(arrayOfRecipes[0], totalIngredients));
+
+function filterDishes() {
+  let availableDishes = arrayOfRecipes.filter((dish) =>
+    containsAll(dish, totalIngredients)
+  );
+
+  return availableDishes;
 }
+
+console.log(filterDishes());
 
 module.exports = filterDishes;
