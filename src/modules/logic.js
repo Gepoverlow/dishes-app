@@ -1,19 +1,19 @@
 let arrayOfRecipes = [
   {
     name: "Arroz con Pollo",
-    ingredients: ["Arroz", "Pollo"],
+    ingredients: ["Arroz", "Pollo", "Sal"],
   },
   {
     name: "Fideos con Salsa",
-    ingredients: ["Fideos", "Salsa"],
+    ingredients: ["Fideos", "Salsa", "Sal"],
   },
   {
     name: "Hamburgesas",
-    ingredients: ["Carne Picada", "Pan", "Cebolla"],
+    ingredients: ["Carne Picada", "Pan", "Cebolla", "Sal"],
   },
   {
     name: "Ensalada de primavera",
-    ingredients: ["Fideos", "Mayonesa", "Atun", "Choclo"],
+    ingredients: ["Fideos", "Mayonesa", "Atun", "Choclo", "Sal"],
   },
 ];
 
@@ -51,13 +51,20 @@ let totalIngredients = [
   "Ajo",
 ];
 let currentIngedients = ["Arroz", "Pollo"];
+let availableDishes = [];
 
 function checkIngredient(dish, ingredient) {
   return dish.ingredients.includes(`${ingredient}`) ? true : false;
 }
 
-function filterIngredients(ingredients, possibleDishes) {
-  for (let i = 0; i < ingredients.length; i++) {}
+function filterDishes(ingredient) {
+  let dishes = [];
+  for (let i = 0; i < arrayOfRecipes.length; i++) {
+    if (checkIngredient(arrayOfRecipes[i], ingredient)) {
+      dishes.push(arrayOfRecipes[i].name);
+    }
+  }
+  return dishes;
 }
 
-module.exports = checkIngredient;
+module.exports = filterDishes;
