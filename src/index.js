@@ -1,4 +1,5 @@
 import "./css/style.css";
 import { arrayOfRecipes, totalIngredients } from "../src/modules/logic.js";
+import { renderIngredients } from "../src/modules/dom.js";
 
-console.log(arrayOfRecipes, totalIngredients);
+renderIngredients(totalIngredients);
