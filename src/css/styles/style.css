@@ -5,23 +5,31 @@
 
 html,
 body,
-.container-ingredients {
+.container-all {
   height: 100%;
 }
 
 .container-ingredients {
+  background-color: rgb(61, 53, 53);
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
   grid-template-rows: repeat(auto-fit, 300px);
   grid-gap: 0.5em;
-  margin: 0.5em;
+  padding-top: 0.5em;
   place-items: center;
   justify-content: center;
 }
 
 .ingredients {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 50px;
+  padding: 5px;
   padding: 1em;
-  background-color: rgb(192, 75, 75);
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 300px;
   width: 300px;
 }
