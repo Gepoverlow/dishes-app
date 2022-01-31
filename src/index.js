@@ -1,4 +1,4 @@
 import "./css/style.css";
-import arrayOfRecipes from "./modules/logic.js";
+import { arrayOfRecipes, totalIngredients } from "../src/modules/logic.js";
 
-console.log(arrayOfRecipes);
+console.log(arrayOfRecipes, totalIngredients);

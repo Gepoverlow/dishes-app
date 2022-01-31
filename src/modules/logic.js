@@ -49,23 +49,18 @@ let totalIngredients = [
   "Patata",
   "Lentejas",
   "Ajo",
-  "Sal",
 ];
 
 function containsAll(needed, owned) {
   return needed.ingredients.every((i) => owned.includes(i));
 }
 
-console.log(containsAll(arrayOfRecipes[0], totalIngredients));
-
-function filterDishes() {
+function filterDishes(ingredients) {
   let availableDishes = arrayOfRecipes.filter((dish) =>
-    containsAll(dish, totalIngredients)
+    containsAll(dish, ingredients)
   );
 
   return availableDishes;
 }
 
-console.log(filterDishes());
-
-module.exports = filterDishes;
+export { filterDishes, arrayOfRecipes, totalIngredients };

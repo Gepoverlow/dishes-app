@@ -1,3 +1,15 @@
-body {
-  background-color: black;
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.container-ingredients {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1em;
+}
+
+.ingredients {
+  padding: 1em;
+  background-color: rgb(192, 75, 75);
 }
