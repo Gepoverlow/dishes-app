@@ -31,10 +31,31 @@ function deselectIngredient(e) {
   }
 }
 
+function selectedIngredients(className) {
+  let selected = document.querySelectorAll(`.${className}`);
+  let arrayOfIngredients = [];
+
+  for (let i = 0; i < selected.length; i++) {
+    arrayOfIngredients.push(selected[i].innerText);
+  }
+
+  return arrayOfIngredients;
+
+  // for (let i = 0; i < selected.length; i++) {
+  //   arrayOfIngredients.push(selected[i].innerText);
+  // }
+  // return arrayOfIngredients;
+}
+
 function emptyNode(node) {
   while (node.lastElementChild) {
     node.removeChild(node.lastElementChild);
   }
 }
 
-export { renderIngredients, selectIngredient, deselectIngredient };
+export {
+  renderIngredients,
+  selectIngredient,
+  deselectIngredient,
+  selectedIngredients,
+};

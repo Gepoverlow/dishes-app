@@ -1,7 +1,7 @@
 let arrayOfRecipes = [
   {
     name: "Arroz con Pollo",
-    ingredients: ["Arroz", "Pollo"],
+    ingredients: ["Chicken", "Rice"],
   },
   {
     name: "Fideos con Salsa",
@@ -174,8 +174,8 @@ function containsAll(needed, owned) {
   return needed.ingredients.every((i) => owned.includes(i));
 }
 
-function filterDishes(ingredients) {
-  let availableDishes = arrayOfRecipes.filter((dish) =>
+function filterDishes(recipes, ingredients) {
+  let availableDishes = recipes.filter((dish) =>
     containsAll(dish, ingredients)
   );
 
