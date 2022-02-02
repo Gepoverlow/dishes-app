@@ -9,6 +9,7 @@ import {
   selectIngredient,
   deselectIngredient,
   selectedIngredients,
+  renderDishes,
 } from "../src/modules/dom.js";
 
 let container = document.querySelector(".container-all");
@@ -23,8 +24,7 @@ container.addEventListener("click", (e) => {
     deselectIngredient(e);
   }
 
-  //   console.log(selectedIngredients("selected"));
-  console.log(filterDishes(arrayOfRecipes, selectedIngredients("selected")));
+  renderDishes(filterDishes(arrayOfRecipes, selectedIngredients("selected")));
 });
 
 renderIngredients(totalIngredients);

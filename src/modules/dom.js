@@ -15,6 +15,17 @@ function renderIngredients(ingredients) {
   }
 }
 
+function renderDishes(dishes) {
+  let containerDishes = document.querySelector(".ul-dishes");
+  emptyNode(containerDishes);
+  for (let i = 0; i < dishes.length; i++) {
+    let dishLI = document.createElement("li");
+    dishLI.textContent = dishes[i].name;
+
+    containerDishes.appendChild(dishLI);
+  }
+}
+
 function selectIngredient(e) {
   if (e.target.className === "ingredients") {
     e.target.classList.add("selected");
@@ -58,4 +69,5 @@ export {
   selectIngredient,
   deselectIngredient,
   selectedIngredients,
+  renderDishes,
 };

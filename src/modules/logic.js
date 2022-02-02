@@ -5,15 +5,15 @@ let arrayOfRecipes = [
   },
   {
     name: "Fideos con Salsa",
-    ingredients: ["Fideos", "Salsa"],
+    ingredients: ["Noodles", "Tomato Sause"],
   },
   {
     name: "Hamburgesas",
-    ingredients: ["Carne Picada", "Pan", "Cebolla"],
+    ingredients: ["Meat", "Bread", "Onion"],
   },
   {
     name: "Ensalada de primavera",
-    ingredients: ["Fideos", "Mayonesa", "Atun", "Choclo"],
+    ingredients: ["Noodles", "Mayo", "Tuna", "Corn"],
   },
 ];
 
@@ -79,11 +79,11 @@ let totalIngredients = [
     img: require("../css/images/pepino.jpg"),
   },
   {
-    name: "Lechuga",
+    name: "Lettuce",
     img: require("../css/images/lettuce.jpeg"),
   },
   {
-    name: "Jamon",
+    name: "Ham",
     img: require("../css/images/jamon.jpg"),
   },
   {
@@ -91,15 +91,15 @@ let totalIngredients = [
     img: require("../css/images/chorizo.jpeg"),
   },
   {
-    name: "Queso Feta",
+    name: "Feta Cheese",
     img: require("../css/images/queso-feta.jpg"),
   },
   {
-    name: "Cebollin",
+    name: "Chives",
     img: require("../css/images/cebollin.jpg"),
   },
   {
-    name: "Tomate",
+    name: "Tomato",
     img: require("../css/images/tomato.jpg"),
   },
   {
@@ -115,23 +115,23 @@ let totalIngredients = [
     img: require("../css/images/avocado.jpg"),
   },
   {
-    name: "Limon",
+    name: "Lemon",
     img: require("../css/images/lemon.jpg"),
   },
   {
-    name: "Zanahoria",
+    name: "Carrot",
     img: require("../css/images/carrot.jpg"),
   },
   {
-    name: "Patatas",
+    name: "Potato",
     img: require("../css/images/potato.jpeg"),
   },
   {
-    name: "Lentejas",
+    name: "Lentil",
     img: require("../css/images/lentejas.jpg"),
   },
   {
-    name: "Ajo",
+    name: "Garlic",
     img: require("../css/images/ajo.jpg"),
   },
 ];
