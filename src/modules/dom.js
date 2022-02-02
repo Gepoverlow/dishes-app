@@ -1,6 +1,6 @@
 function renderIngredients(ingredients) {
   let container = document.querySelector(".container-ingredients");
-  container.innerHTML = "";
+  emptyNode(container);
   for (let i = 0; i < ingredients.length; i++) {
     let ingredientCard = document.createElement("div");
     let ingredientName = document.createElement("p");
@@ -15,4 +15,26 @@ function renderIngredients(ingredients) {
   }
 }
 
-export { renderIngredients };
+function selectIngredient(e) {
+  if (e.target.className === "ingredients") {
+    e.target.classList.add("selected");
+  } else if (e.target.nodeName === "P") {
+    e.target.parentNode.classList.add("selected");
+  }
+}
+
+function deselectIngredient(e) {
+  if (e.target.className === "ingredients selected") {
+    e.target.classList.remove("selected");
+  } else if (e.target.nodeName === "P") {
+    e.target.parentNode.classList.remove("selected");
+  }
+}
+
+function emptyNode(node) {
+  while (node.lastElementChild) {
+    node.removeChild(node.lastElementChild);
+  }
+}
+
+export { renderIngredients, selectIngredient, deselectIngredient };
