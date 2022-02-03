@@ -18,11 +18,18 @@ function renderIngredients(ingredients) {
 function renderDishes(dishes) {
   let containerDishes = document.querySelector(".ul-dishes");
   emptyNode(containerDishes);
-  for (let i = 0; i < dishes.length; i++) {
-    let dishLI = document.createElement("li");
-    dishLI.textContent = dishes[i].name;
+  if (dishes.length !== 0) {
+    for (let i = 0; i < dishes.length; i++) {
+      let dishLI = document.createElement("li");
+      dishLI.textContent = dishes[i].name;
 
-    containerDishes.appendChild(dishLI);
+      containerDishes.appendChild(dishLI);
+    }
+  } else {
+    let noDishes = document.createElement("li");
+    noDishes.textContent = "No Available Dishes";
+
+    containerDishes.appendChild(noDishes);
   }
 }
 

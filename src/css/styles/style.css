@@ -27,13 +27,30 @@ body {
   padding: 20px;
 }
 
+.container-info-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  min-height: 20vh;
+}
+
+.container-info-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  min-width: 25vw;
+  /* padding: 20px; */
+}
+
 .container-ingredients {
   background-color: rgb(61, 53, 53);
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
   grid-template-rows: repeat(auto-fit, 300px);
   grid-gap: 0.5em;
-  padding-top: 0.5em;
+  padding: 0.5em;
   place-items: center;
   justify-content: center;
   min-width: 75vw;
@@ -52,8 +69,20 @@ body {
   background-repeat: no-repeat;
   height: 300px;
   width: 300px;
+  cursor: pointer;
+}
+
+.ul-dishes {
+  list-style-type: none;
+  padding: 0.5em;
 }
 
 .selected {
   border: 5px solid red;
+}
+
+.material-icons-outlined {
+  cursor: pointer;
+  padding-left: 20px;
+  font-size: 50px;
 }
