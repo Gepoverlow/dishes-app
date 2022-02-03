@@ -10,11 +10,15 @@ import {
   deselectIngredient,
   selectedIngredients,
   renderAvailableDishes,
+  renderAllDishes,
 } from "../src/modules/dom.js";
 
-let container = document.querySelector(".container-all");
+let containerIngredients = document.querySelector(".container-ingredients");
+let recipesBtn = document.getElementById("recipes-btn");
 
-container.addEventListener("click", (e) => {
+window.addEventListener("load", renderIngredients(totalIngredients));
+
+containerIngredients.addEventListener("click", (e) => {
   if (
     e.target.className === "ingredients" ||
     e.target.parentNode.className === "ingredients"
@@ -29,4 +33,6 @@ container.addEventListener("click", (e) => {
   );
 });
 
-renderIngredients(totalIngredients);
+recipesBtn.addEventListener("click", () => {
+  renderAllDishes(arrayOfRecipes);
+});
