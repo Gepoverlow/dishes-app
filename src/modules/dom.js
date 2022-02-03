@@ -15,21 +15,26 @@ function renderIngredients(ingredients) {
   }
 }
 
-function renderDishes(dishes) {
-  let containerDishes = document.querySelector(".ul-dishes");
+function renderAvailableDishes(dishes) {
+  let containerDishes = document.querySelector(".container-info-main");
   emptyNode(containerDishes);
+
+  let dishUL = document.createElement("ul");
+  dishUL.classList.add("ul-dishes");
+  containerDishes.appendChild(dishUL);
+
   if (dishes.length !== 0) {
     for (let i = 0; i < dishes.length; i++) {
       let dishLI = document.createElement("li");
       dishLI.textContent = dishes[i].name;
 
-      containerDishes.appendChild(dishLI);
+      dishUL.appendChild(dishLI);
     }
   } else {
     let noDishes = document.createElement("li");
     noDishes.textContent = "No Available Dishes";
 
-    containerDishes.appendChild(noDishes);
+    dishUL.appendChild(noDishes);
   }
 }
 
@@ -58,11 +63,6 @@ function selectedIngredients(className) {
   }
 
   return arrayOfIngredients;
-
-  // for (let i = 0; i < selected.length; i++) {
-  //   arrayOfIngredients.push(selected[i].innerText);
-  // }
-  // return arrayOfIngredients;
 }
 
 function emptyNode(node) {
@@ -76,5 +76,5 @@ export {
   selectIngredient,
   deselectIngredient,
   selectedIngredients,
-  renderDishes,
+  renderAvailableDishes,
 };

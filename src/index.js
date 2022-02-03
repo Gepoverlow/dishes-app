@@ -9,7 +9,7 @@ import {
   selectIngredient,
   deselectIngredient,
   selectedIngredients,
-  renderDishes,
+  renderAvailableDishes,
 } from "../src/modules/dom.js";
 
 let container = document.querySelector(".container-all");
@@ -24,7 +24,9 @@ container.addEventListener("click", (e) => {
     deselectIngredient(e);
   }
 
-  renderDishes(filterDishes(arrayOfRecipes, selectedIngredients("selected")));
+  renderAvailableDishes(
+    filterDishes(arrayOfRecipes, selectedIngredients("selected"))
+  );
 });
 
 renderIngredients(totalIngredients);
