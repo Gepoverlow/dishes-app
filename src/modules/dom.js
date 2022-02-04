@@ -39,6 +39,8 @@ function renderDishIngredients(domElement, dish) {
     let ingredientLI = document.createElement("li");
     ingredientLI.textContent = dish.ingredients[i];
 
+    ingredientLI.classList.add("ingredientLI");
+
     domElement.appendChild(ingredientLI);
   }
 }
@@ -66,7 +68,14 @@ function renderAllDishes(dishes) {
   }
 }
 
-function renderAddForm() {}
+function filterCurrentIngredients(arrayOfSelectedIngredients) {
+  let allIngredients = document.querySelectorAll(".ingredientLI");
+  for (let i = 0; i < allIngredients.length; i++) {
+    arrayOfSelectedIngredients.includes(`${allIngredients[i].textContent}`)
+      ? allIngredients[i].classList.add("owned")
+      : allIngredients[i].classList.remove("owned");
+  }
+}
 
 function selectIngredient(e) {
   if (e.target.className === "ingredients") {
@@ -108,4 +117,5 @@ export {
   selectedIngredients,
   renderAvailableDishes,
   renderAllDishes,
+  filterCurrentIngredients,
 };

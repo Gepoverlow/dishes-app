@@ -11,6 +11,7 @@ import {
   selectedIngredients,
   renderAvailableDishes,
   renderAllDishes,
+  filterCurrentIngredients,
 } from "../src/modules/dom.js";
 
 let containerIngredients = document.querySelector(".container-ingredients");
@@ -30,5 +31,6 @@ containerIngredients.addEventListener("click", (e) => {
     deselectIngredient(e);
   }
 
-  console.log(filterDishes(arrayOfRecipes, selectedIngredients("selected")));
+  filterCurrentIngredients(selectedIngredients("selected"));
+  console.log(selectedIngredients("selected"));
 });

@@ -1,7 +1,7 @@
 let arrayOfRecipes = [
   {
     name: "Arroz con Pollo",
-    ingredients: ["Chicken", "Rice"],
+    ingredients: ["Chicken", "Rice", "Mayo"],
   },
   {
     name: "Fideos con Salsa",

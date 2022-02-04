@@ -95,3 +95,7 @@ div > ul > li {
   padding-bottom: 10px;
   padding-top: 10px;
 }
+
+.owned {
+  color: rgb(126, 177, 126);
+}
