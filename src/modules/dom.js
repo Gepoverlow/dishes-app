@@ -16,25 +16,30 @@ function renderIngredients(ingredients) {
 }
 
 function renderAvailableDishes(dishes) {
-  let containerDishes = document.querySelector(".container-info-main");
-  emptyNode(containerDishes);
+  // let containerDishes = document.querySelector(".container-info-main");
+  // emptyNode(containerDishes);
+  // let dishUL = document.createElement("ul");
+  // dishUL.classList.add("ul-dishes");
+  // containerDishes.appendChild(dishUL);
+  // if (dishes.length !== 0) {
+  //   for (let i = 0; i < dishes.length; i++) {
+  //     let dishLI = document.createElement("li");
+  //     dishLI.textContent = dishes[i].name;
+  //     dishUL.appendChild(dishLI);
+  //   }
+  // } else {
+  //   let noDishes = document.createElement("li");
+  //   noDishes.textContent = "No Available Dishes";
+  //   dishUL.appendChild(noDishes);
+  // }
+}
 
-  let dishUL = document.createElement("ul");
-  dishUL.classList.add("ul-dishes");
-  containerDishes.appendChild(dishUL);
+function renderDishIngredients(domElement, dish) {
+  for (let i = 0; i < dish.ingredients.length; i++) {
+    let ingredientLI = document.createElement("li");
+    ingredientLI.textContent = dish.ingredients[i];
 
-  if (dishes.length !== 0) {
-    for (let i = 0; i < dishes.length; i++) {
-      let dishLI = document.createElement("li");
-      dishLI.textContent = dishes[i].name;
-
-      dishUL.appendChild(dishLI);
-    }
-  } else {
-    let noDishes = document.createElement("li");
-    noDishes.textContent = "No Available Dishes";
-
-    dishUL.appendChild(noDishes);
+    domElement.appendChild(ingredientLI);
   }
 }
 
@@ -42,25 +47,22 @@ function renderAllDishes(dishes) {
   let containerDishes = document.querySelector(".container-info-main");
   emptyNode(containerDishes);
 
-  let dishUL = document.createElement("ul");
-  dishUL.classList.add("ul-dishes");
-  containerDishes.appendChild(dishUL);
+  for (let i = 0; i < dishes.length; i++) {
+    let dishDiv = document.createElement("div");
+    containerDishes.appendChild(dishDiv);
 
-  if (dishes.length !== 0) {
-    for (let i = 0; i < dishes.length; i++) {
-      let dishLI = document.createElement("li");
-      dishLI.textContent = dishes[i].name;
+    let dishName = document.createElement("h3");
+    dishName.textContent = dishes[i].name;
+    dishDiv.appendChild(dishName);
 
-      dishUL.appendChild(dishLI);
-    }
-    let addLI = document.createElement("input");
-    addLI.value = "ADD DISH";
-    dishUL.appendChild(addLI);
-  } else {
-    let noDishes = document.createElement("li");
-    noDishes.textContent = "No Available Dishes";
+    let dishIngredientsContainer = document.createElement("div");
+    dishIngredientsContainer.classList.add("hidden");
+    dishDiv.appendChild(dishIngredientsContainer);
 
-    dishUL.appendChild(noDishes);
+    let dishUL = document.createElement("ul");
+    dishIngredientsContainer.appendChild(dishUL);
+
+    renderDishIngredients(dishUL, dishes[i]);
   }
 }
 

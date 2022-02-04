@@ -41,7 +41,6 @@ body {
   flex-direction: column;
   min-height: 80vh;
   min-width: 25vw;
-  /* padding: 20px; */
 }
 
 .container-ingredients {
@@ -72,16 +71,6 @@ body {
   cursor: pointer;
 }
 
-.ul-dishes {
-  list-style-type: none;
-  padding: 0.5em;
-}
-
-.ul-dishes > li {
-  cursor: pointer;
-  padding-bottom: 10px;
-}
-
 .selected {
   border: 5px solid red;
 }
@@ -90,4 +79,19 @@ body {
   cursor: pointer;
   padding-left: 20px;
   font-size: 50px;
+}
+
+.hidden {
+  display: block;
+}
+
+.container-info-main > div {
+  cursor: pointer;
+  padding-bottom: 20px;
+}
+
+div > ul > li {
+  list-style-type: none;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }

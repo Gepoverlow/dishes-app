@@ -14,9 +14,11 @@ import {
 } from "../src/modules/dom.js";
 
 let containerIngredients = document.querySelector(".container-ingredients");
-let recipesBtn = document.getElementById("recipes-btn");
 
-window.addEventListener("load", renderIngredients(totalIngredients));
+window.addEventListener("load", () => {
+  renderIngredients(totalIngredients);
+  renderAllDishes(arrayOfRecipes);
+});
 
 containerIngredients.addEventListener("click", (e) => {
   if (
@@ -28,11 +30,5 @@ containerIngredients.addEventListener("click", (e) => {
     deselectIngredient(e);
   }
 
-  renderAvailableDishes(
-    filterDishes(arrayOfRecipes, selectedIngredients("selected"))
-  );
-});
-
-recipesBtn.addEventListener("click", () => {
-  renderAllDishes(arrayOfRecipes);
+  console.log(filterDishes(arrayOfRecipes, selectedIngredients("selected")));
 });
