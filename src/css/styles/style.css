@@ -77,6 +77,11 @@ body {
   padding: 0.5em;
 }
 
+.ul-dishes > li {
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+
 .selected {
   border: 5px solid red;
 }

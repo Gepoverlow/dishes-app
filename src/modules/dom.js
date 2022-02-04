@@ -53,6 +53,9 @@ function renderAllDishes(dishes) {
 
       dishUL.appendChild(dishLI);
     }
+    let addLI = document.createElement("input");
+    addLI.value = "ADD DISH";
+    dishUL.appendChild(addLI);
   } else {
     let noDishes = document.createElement("li");
     noDishes.textContent = "No Available Dishes";
@@ -60,6 +63,8 @@ function renderAllDishes(dishes) {
     dishUL.appendChild(noDishes);
   }
 }
+
+function renderAddForm() {}
 
 function selectIngredient(e) {
   if (e.target.className === "ingredients") {
