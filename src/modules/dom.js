@@ -36,18 +36,24 @@ function renderAvailableDishes(dishes) {
   // }
 }
 
-function renderDishIngredients(domElement, dish) {
+function renderDishIngredients(domElement, dish, selectedIngredients) {
   for (let i = 0; i < dish.ingredients.length; i++) {
     let ingredientLI = document.createElement("li");
     ingredientLI.textContent = dish.ingredients[i];
 
     ingredientLI.classList.add("ingredientLI");
 
+    selectedIngredients.includes(`${ingredientLI.textContent}`)
+      ? ingredientLI.classList.add("owned")
+      : ingredientLI.classList.remove("owned");
+
+    console.log(ingredientLI.textContent);
+
     domElement.appendChild(ingredientLI);
   }
 }
 
-function renderAllDishes(dishes) {
+function renderAllDishes(dishes, selectedIngredients) {
   let containerDishes = document.querySelector(".container-info-main");
   emptyNode(containerDishes);
 
@@ -67,13 +73,12 @@ function renderAllDishes(dishes) {
     let dishUL = document.createElement("ul");
     dishIngredientsContainer.appendChild(dishUL);
 
-    renderDishIngredients(dishUL, dishes[i]);
+    renderDishIngredients(dishUL, dishes[i], selectedIngredients);
   }
 }
 
 function filterCurrentIngredients(arrayOfSelectedIngredients) {
   let allIngredients = document.querySelectorAll(".ingredientLI");
-  console.log(arrayOfSelectedIngredients);
 
   for (let i = 0; i < allIngredients.length; i++) {
     arrayOfSelectedIngredients.includes(`${allIngredients[i].textContent}`)
@@ -84,7 +89,6 @@ function filterCurrentIngredients(arrayOfSelectedIngredients) {
 
 function filterCurrentDishes(arrayOfAvailableDishes) {
   let allDishes = document.querySelectorAll(".dishH3");
-  console.log(arrayOfAvailableDishes);
 
   for (let i = 0; i < allDishes.length; i++) {
     arrayOfAvailableDishes.includes(`${allDishes[i].textContent}`)
@@ -126,6 +130,14 @@ function emptyNode(node) {
   }
 }
 
+function renderForm() {
+  let containerDishes = document.querySelector(".container-info-main");
+  emptyNode(containerDishes);
+
+  let form = document.createElement("form");
+  containerDishes.appendChild(form);
+}
+
 export {
   renderIngredients,
   selectIngredient,
@@ -135,4 +147,5 @@ export {
   renderAllDishes,
   filterCurrentIngredients,
   filterCurrentDishes,
+  renderForm,
 };

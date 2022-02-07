@@ -14,13 +14,17 @@ import {
   renderAllDishes,
   filterCurrentIngredients,
   filterCurrentDishes,
+  renderForm,
 } from "../src/modules/dom.js";
 
 let containerIngredients = document.querySelector(".container-ingredients");
 
+let addButton = document.getElementById("add-button");
+let seeButton = document.getElementById("see-button");
+
 window.addEventListener("load", () => {
   renderIngredients(totalIngredients);
-  renderAllDishes(arrayOfRecipes);
+  renderAllDishes(arrayOfRecipes, selectedIngredients("selected"));
 });
 
 containerIngredients.addEventListener("click", (e) => {
@@ -39,4 +43,11 @@ containerIngredients.addEventListener("click", (e) => {
       filterDishes(arrayOfRecipes, selectedIngredients("selected"))
     )
   );
+});
+
+addButton.addEventListener("click", () => {
+  renderForm();
+});
+seeButton.addEventListener("click", () => {
+  renderAllDishes(arrayOfRecipes, selectedIngredients("selected"));
 });
