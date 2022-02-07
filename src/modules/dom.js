@@ -157,6 +157,11 @@ function renderForm(selectedIngredients) {
   ingredientDiv.appendChild(ingredientUL);
 
   updateFormList(selectedIngredients);
+
+  let addButton = document.createElement("button");
+  addButton.className = "submit-button";
+  addButton.textContent = "Submit Recipe";
+  form.appendChild(addButton);
 }
 
 function updateFormList(selectedIngredients) {
