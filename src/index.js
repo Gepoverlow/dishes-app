@@ -24,7 +24,13 @@ let seeButton = document.getElementById("see-button");
 
 window.addEventListener("load", () => {
   renderIngredients(totalIngredients);
-  renderAllDishes(arrayOfRecipes, selectedIngredients("selected"));
+  renderAllDishes(
+    arrayOfRecipes,
+    selectedIngredients("selected"),
+    filteredDishName(
+      filterDishes(arrayOfRecipes, selectedIngredients("selected"))
+    )
+  );
 });
 
 containerIngredients.addEventListener("click", (e) => {
@@ -49,5 +55,11 @@ addButton.addEventListener("click", () => {
   renderForm();
 });
 seeButton.addEventListener("click", () => {
-  renderAllDishes(arrayOfRecipes, selectedIngredients("selected"));
+  renderAllDishes(
+    arrayOfRecipes,
+    selectedIngredients("selected"),
+    filteredDishName(
+      filterDishes(arrayOfRecipes, selectedIngredients("selected"))
+    )
+  );
 });

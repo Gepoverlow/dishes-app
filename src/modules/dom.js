@@ -44,16 +44,14 @@ function renderDishIngredients(domElement, dish, selectedIngredients) {
     ingredientLI.classList.add("ingredientLI");
 
     selectedIngredients.includes(`${ingredientLI.textContent}`)
-      ? ingredientLI.classList.add("owned")
-      : ingredientLI.classList.remove("owned");
-
-    console.log(ingredientLI.textContent);
+      ? ingredientLI.classList.add("available")
+      : ingredientLI.classList.remove("available");
 
     domElement.appendChild(ingredientLI);
   }
 }
 
-function renderAllDishes(dishes, selectedIngredients) {
+function renderAllDishes(dishes, selectedIngredients, availableDishes) {
   let containerDishes = document.querySelector(".container-info-main");
   emptyNode(containerDishes);
 
@@ -64,6 +62,11 @@ function renderAllDishes(dishes, selectedIngredients) {
     let dishName = document.createElement("h3");
     dishName.classList.add("dishH3");
     dishName.textContent = dishes[i].name;
+
+    availableDishes.includes(`${dishName.textContent}`)
+      ? dishName.classList.add("available")
+      : dishName.classList.remove("available");
+
     dishDiv.appendChild(dishName);
 
     let dishIngredientsContainer = document.createElement("div");
@@ -82,8 +85,8 @@ function filterCurrentIngredients(arrayOfSelectedIngredients) {
 
   for (let i = 0; i < allIngredients.length; i++) {
     arrayOfSelectedIngredients.includes(`${allIngredients[i].textContent}`)
-      ? allIngredients[i].classList.add("owned")
-      : allIngredients[i].classList.remove("owned");
+      ? allIngredients[i].classList.add("available")
+      : allIngredients[i].classList.remove("available");
   }
 }
 
@@ -92,8 +95,8 @@ function filterCurrentDishes(arrayOfAvailableDishes) {
 
   for (let i = 0; i < allDishes.length; i++) {
     arrayOfAvailableDishes.includes(`${allDishes[i].textContent}`)
-      ? allDishes[i].classList.add("owned")
-      : allDishes[i].classList.remove("owned");
+      ? allDishes[i].classList.add("available")
+      : allDishes[i].classList.remove("available");
   }
 }
 
