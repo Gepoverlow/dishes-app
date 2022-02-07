@@ -170,6 +170,13 @@ let totalIngredients = [
 //   "Ajo",
 // ];
 
+class Dish {
+  constructor(name, ingredients) {
+    this.name = name;
+    this.ingredients = ingredients;
+  }
+}
+
 function containsAll(needed, owned) {
   return needed.ingredients.every((i) => owned.includes(i));
 }
@@ -186,4 +193,10 @@ function filteredDishName(arr) {
   return arr.map((dish) => dish.name);
 }
 
-export { filterDishes, arrayOfRecipes, totalIngredients, filteredDishName };
+export {
+  filterDishes,
+  arrayOfRecipes,
+  totalIngredients,
+  filteredDishName,
+  Dish,
+};

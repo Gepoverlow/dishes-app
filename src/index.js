@@ -4,6 +4,7 @@ import {
   filterDishes,
   totalIngredients,
   filteredDishName,
+  Dish,
 } from "../src/modules/logic.js";
 import {
   renderIngredients,
@@ -15,6 +16,7 @@ import {
   filterCurrentIngredients,
   filterCurrentDishes,
   renderForm,
+  updateFormList,
 } from "../src/modules/dom.js";
 
 let containerIngredients = document.querySelector(".container-ingredients");
@@ -49,10 +51,12 @@ containerIngredients.addEventListener("click", (e) => {
       filterDishes(arrayOfRecipes, selectedIngredients("selected"))
     )
   );
+
+  updateFormList(selectedIngredients("selected"));
 });
 
 addButton.addEventListener("click", () => {
-  renderForm();
+  renderForm(selectedIngredients("selected"));
 });
 seeButton.addEventListener("click", () => {
   renderAllDishes(

@@ -133,12 +133,46 @@ function emptyNode(node) {
   }
 }
 
-function renderForm() {
+function renderForm(selectedIngredients) {
   let containerDishes = document.querySelector(".container-info-main");
   emptyNode(containerDishes);
 
   let form = document.createElement("form");
   containerDishes.appendChild(form);
+
+  let label = document.createElement("label");
+  label.setAttribute("for", "form-input-add");
+  let input = document.createElement("input");
+  input.id = "form-input-add";
+  input.setAttribute("placeholder", "Enter Dish Name");
+  form.appendChild(label);
+  form.appendChild(input);
+
+  let ingredientDiv = document.createElement("div");
+  ingredientDiv.className = "form-ingredients-container";
+  form.appendChild(ingredientDiv);
+
+  let ingredientUL = document.createElement("ul");
+  ingredientUL.className = "form-ingredients-list";
+  ingredientDiv.appendChild(ingredientUL);
+
+  updateFormList(selectedIngredients);
+}
+
+function updateFormList(selectedIngredients) {
+  if (
+    typeof document.querySelector(".form-ingredients-list") != "undefined" &&
+    document.querySelector(".form-ingredients-list") !== null
+  ) {
+    let list = document.querySelector(".form-ingredients-list");
+    emptyNode(list);
+
+    for (let i = 0; i < selectedIngredients.length; i++) {
+      let listItem = document.createElement("li");
+      listItem.textContent = selectedIngredients[i];
+      list.appendChild(listItem);
+    }
+  }
 }
 
 export {
@@ -151,4 +185,5 @@ export {
   filterCurrentIngredients,
   filterCurrentDishes,
   renderForm,
+  updateFormList,
 };
