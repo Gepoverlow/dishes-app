@@ -1,3 +1,5 @@
+import { arrayOfRecipes } from "./logic";
+
 function renderIngredients(ingredients) {
   let container = document.querySelector(".container-ingredients");
   emptyNode(container);
@@ -54,6 +56,7 @@ function renderAllDishes(dishes) {
     containerDishes.appendChild(dishDiv);
 
     let dishName = document.createElement("h3");
+    dishName.classList.add("dishH3");
     dishName.textContent = dishes[i].name;
     dishDiv.appendChild(dishName);
 
@@ -70,10 +73,23 @@ function renderAllDishes(dishes) {
 
 function filterCurrentIngredients(arrayOfSelectedIngredients) {
   let allIngredients = document.querySelectorAll(".ingredientLI");
+  console.log(arrayOfSelectedIngredients);
+
   for (let i = 0; i < allIngredients.length; i++) {
     arrayOfSelectedIngredients.includes(`${allIngredients[i].textContent}`)
       ? allIngredients[i].classList.add("owned")
       : allIngredients[i].classList.remove("owned");
+  }
+}
+
+function filterCurrentDishes(arrayOfAvailableDishes) {
+  let allDishes = document.querySelectorAll(".dishH3");
+  console.log(arrayOfAvailableDishes);
+
+  for (let i = 0; i < allDishes.length; i++) {
+    arrayOfAvailableDishes.includes(`${allDishes[i].textContent}`)
+      ? allDishes[i].classList.add("owned")
+      : allDishes[i].classList.remove("owned");
   }
 }
 
@@ -118,4 +134,5 @@ export {
   renderAvailableDishes,
   renderAllDishes,
   filterCurrentIngredients,
+  filterCurrentDishes,
 };

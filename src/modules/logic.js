@@ -182,4 +182,8 @@ function filterDishes(recipes, ingredients) {
   return availableDishes;
 }
 
-export { filterDishes, arrayOfRecipes, totalIngredients };
+function filteredDishName(arr) {
+  return arr.map((dish) => dish.name);
+}
+
+export { filterDishes, arrayOfRecipes, totalIngredients, filteredDishName };

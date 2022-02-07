@@ -3,6 +3,7 @@ import {
   arrayOfRecipes,
   filterDishes,
   totalIngredients,
+  filteredDishName,
 } from "../src/modules/logic.js";
 import {
   renderIngredients,
@@ -12,6 +13,7 @@ import {
   renderAvailableDishes,
   renderAllDishes,
   filterCurrentIngredients,
+  filterCurrentDishes,
 } from "../src/modules/dom.js";
 
 let containerIngredients = document.querySelector(".container-ingredients");
@@ -32,5 +34,9 @@ containerIngredients.addEventListener("click", (e) => {
   }
 
   filterCurrentIngredients(selectedIngredients("selected"));
-  console.log(selectedIngredients("selected"));
+  filterCurrentDishes(
+    filteredDishName(
+      filterDishes(arrayOfRecipes, selectedIngredients("selected"))
+    )
+  );
 });
