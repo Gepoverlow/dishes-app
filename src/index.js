@@ -19,6 +19,7 @@ import {
   updateFormList,
 } from "../src/modules/dom.js";
 
+let body = document.getElementsByTagName("body")[0];
 let containerIngredients = document.querySelector(".container-ingredients");
 
 let addButton = document.getElementById("add-button");
@@ -58,6 +59,7 @@ containerIngredients.addEventListener("click", (e) => {
 addButton.addEventListener("click", () => {
   renderForm(selectedIngredients("selected"));
 });
+
 seeButton.addEventListener("click", () => {
   renderAllDishes(
     arrayOfRecipes,
@@ -66,4 +68,18 @@ seeButton.addEventListener("click", () => {
       filterDishes(arrayOfRecipes, selectedIngredients("selected"))
     )
   );
+});
+
+body.addEventListener("click", (e) => {
+  if (e.target.className === "submit-button") {
+    e.preventDefault();
+    let input = document.getElementById("form-input-add");
+
+    if (input.value !== "" && selectedIngredients("selected").length !== 0) {
+      let dish = new Dish(`${input.value}`, selectedIngredients("selected"));
+      arrayOfRecipes.push(dish);
+
+      console.log(arrayOfRecipes);
+    }
+  }
 });
