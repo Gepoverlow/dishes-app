@@ -136,40 +136,6 @@ let totalIngredients = [
   },
 ];
 
-// let totalIngredients = [
-//   "Arroz",
-//   "Pollo",
-//   "Fideos",
-//   "Salsa",
-//   "Carne Picada",
-//   "Pan",
-//   "Cebolla",
-//   "Salsa de Tomate",
-//   "Atun",
-//   "Choclo",
-//   "Mayonesa",
-//   "Leche",
-//   "Huevos",
-//   "Crema",
-//   "Queso Rayado",
-//   "Pepino",
-//   "Lechuga",
-//   "Jamon",
-//   "Chorizo",
-//   "Queso Feta",
-//   "Cebollin",
-//   "Tomate",
-//   "Falafel",
-//   "Manteca",
-//   "Broccoli",
-//   "Avocado",
-//   "Limon",
-//   "Zanahoria",
-//   "Patata",
-//   "Lentejas",
-//   "Ajo",
-// ];
-
 class Dish {
   constructor(name, ingredients) {
     this.name = name;

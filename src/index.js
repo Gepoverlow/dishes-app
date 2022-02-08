@@ -17,6 +17,7 @@ import {
   filterCurrentDishes,
   renderForm,
   updateFormList,
+  unSelect,
 } from "../src/modules/dom.js";
 
 let body = document.getElementsByTagName("body")[0];
@@ -71,15 +72,18 @@ seeButton.addEventListener("click", () => {
 });
 
 body.addEventListener("click", (e) => {
-  if (e.target.className === "submit-button") {
+  if (e.target.className === "submit-button material-icons-outlined") {
     e.preventDefault();
     let input = document.getElementById("form-input-add");
+    let selectedItems = document.querySelectorAll(".selected");
 
     if (input.value !== "" && selectedIngredients("selected").length !== 0) {
       let dish = new Dish(`${input.value}`, selectedIngredients("selected"));
       arrayOfRecipes.push(dish);
 
-      console.log(arrayOfRecipes);
+      input.value = "";
+      unSelect(selectedItems);
+      updateFormList(selectedIngredients("selected"));
     }
   }
 });

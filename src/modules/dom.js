@@ -150,6 +150,7 @@ function renderForm(selectedIngredients) {
 
   let ingredientDiv = document.createElement("div");
   ingredientDiv.className = "form-ingredients-container";
+  ingredientDiv.textContent = "Ingredients";
   form.appendChild(ingredientDiv);
 
   let ingredientUL = document.createElement("ul");
@@ -158,9 +159,10 @@ function renderForm(selectedIngredients) {
 
   updateFormList(selectedIngredients);
 
-  let addButton = document.createElement("button");
+  let addButton = document.createElement("span");
   addButton.className = "submit-button";
-  addButton.textContent = "Submit Recipe";
+  addButton.classList.add("material-icons-outlined");
+  addButton.textContent = "check";
   form.appendChild(addButton);
 }
 
@@ -180,6 +182,12 @@ function updateFormList(selectedIngredients) {
   }
 }
 
+function unSelect(nodelist) {
+  for (let i = 0; i < nodelist.length; i++) {
+    nodelist[i].classList.remove("selected");
+  }
+}
+
 export {
   renderIngredients,
   selectIngredient,
@@ -191,4 +199,5 @@ export {
   filterCurrentDishes,
   renderForm,
   updateFormList,
+  unSelect,
 };

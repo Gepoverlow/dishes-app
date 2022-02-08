@@ -99,3 +99,16 @@ div > ul > li {
 .available {
   color: rgb(126, 177, 126);
 }
+
+#form-input-add {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.form-ingredients-container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 30px;
+}
