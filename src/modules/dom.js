@@ -136,7 +136,7 @@ function emptyNode(node) {
 
 //
 
-function testing(input, ingredientArray, parent) {
+function addIng(input, ingredientArray, parent) {
   if (input.value !== "") {
     let newIngredient = new Ingredient(`${input.value}`);
     ingredientArray.push(newIngredient);
@@ -187,7 +187,7 @@ function renderForm(selectedIngredients) {
   addIngredient.id = "form-input-add-ingredient";
   addIngredient.setAttribute("placeholder", "Enter New Ingredient");
   addIngredient.addEventListener("blur", () => {
-    testing(addIngredient, totalIngredients, containerIngredients);
+    addIng(addIngredient, totalIngredients, containerIngredients);
   });
   ingredientDiv.appendChild(addIngredient);
 
