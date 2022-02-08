@@ -140,6 +140,11 @@ function renderForm(selectedIngredients) {
   let form = document.createElement("form");
   containerDishes.appendChild(form);
 
+  //
+  form.setAttribute("action", "javascript:void(0)");
+  form.setAttribute("method", "post");
+  //
+
   let label = document.createElement("label");
   label.setAttribute("for", "form-input-add");
   let input = document.createElement("input");
