@@ -149,18 +149,27 @@ function renderForm(selectedIngredients) {
   label.setAttribute("for", "form-input-add");
   let input = document.createElement("input");
   input.id = "form-input-add";
-  input.setAttribute("placeholder", "Enter Dish Name");
+  input.setAttribute("placeholder", "Enter New Dish Name");
   form.appendChild(label);
   form.appendChild(input);
 
   let ingredientDiv = document.createElement("div");
   ingredientDiv.className = "form-ingredients-container";
-  ingredientDiv.textContent = "Ingredients";
+  ingredientDiv.textContent = "Ingredients:";
   form.appendChild(ingredientDiv);
 
   let ingredientUL = document.createElement("ul");
   ingredientUL.className = "form-ingredients-list";
   ingredientDiv.appendChild(ingredientUL);
+
+  let addIngredient = document.createElement("input");
+  addIngredient.id = "form-input-add-ingredient";
+  addIngredient.setAttribute("placeholder", "Enter New Ingredient");
+  addIngredient.addEventListener("blur", () => {
+    console.log(addIngredient.value);
+  }),
+    false;
+  ingredientDiv.appendChild(addIngredient);
 
   updateFormList(selectedIngredients);
 

@@ -143,6 +143,12 @@ class Dish {
   }
 }
 
+class Ingredient {
+  constructor(name, img) {
+    (this.name = name), (this.img = img || require("../css/images/kip.jpg"));
+  }
+}
+
 function containsAll(needed, owned) {
   return needed.ingredients.every((i) => owned.includes(i));
 }
@@ -165,4 +171,5 @@ export {
   totalIngredients,
   filteredDishName,
   Dish,
+  Ingredient,
 };

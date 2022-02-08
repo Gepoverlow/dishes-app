@@ -5,6 +5,7 @@ import {
   totalIngredients,
   filteredDishName,
   Dish,
+  Ingredient,
 } from "../src/modules/logic.js";
 import {
   renderIngredients,
@@ -36,6 +37,8 @@ window.addEventListener("load", () => {
     )
   );
 });
+
+console.log(new Ingredient("calabaza"));
 
 containerIngredients.addEventListener("click", (e) => {
   if (
