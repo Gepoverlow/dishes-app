@@ -38,8 +38,6 @@ window.addEventListener("load", () => {
   );
 });
 
-console.log(new Ingredient("calabaza"));
-
 containerIngredients.addEventListener("click", (e) => {
   if (
     e.target.className === "ingredients" ||

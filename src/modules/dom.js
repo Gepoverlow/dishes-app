@@ -1,8 +1,9 @@
-import { arrayOfRecipes } from "./logic";
+import { arrayOfRecipes, totalIngredients, Ingredient } from "./logic";
 
 function renderIngredients(ingredients) {
   let container = document.querySelector(".container-ingredients");
   emptyNode(container);
+
   for (let i = 0; i < ingredients.length; i++) {
     let ingredientCard = document.createElement("div");
     let ingredientName = document.createElement("p");
@@ -133,8 +134,26 @@ function emptyNode(node) {
   }
 }
 
+//
+
+function testing(input, ingredientArray, parent) {
+  if (input.value !== "") {
+    let newIngredient = new Ingredient(`${input.value}`);
+    ingredientArray.push(newIngredient);
+
+    input.value = "";
+
+    newIngredient.createDom(parent);
+
+    updateFormList(selectedIngredients("selected"));
+  }
+}
+
+//
+
 function renderForm(selectedIngredients) {
   let containerDishes = document.querySelector(".container-info-main");
+  let containerIngredients = document.querySelector(".container-ingredients");
   emptyNode(containerDishes);
 
   let form = document.createElement("form");
@@ -162,14 +181,17 @@ function renderForm(selectedIngredients) {
   ingredientUL.className = "form-ingredients-list";
   ingredientDiv.appendChild(ingredientUL);
 
+  //
+
   let addIngredient = document.createElement("input");
   addIngredient.id = "form-input-add-ingredient";
   addIngredient.setAttribute("placeholder", "Enter New Ingredient");
   addIngredient.addEventListener("blur", () => {
-    console.log(addIngredient.value);
-  }),
-    false;
+    testing(addIngredient, totalIngredients, containerIngredients);
+  });
   ingredientDiv.appendChild(addIngredient);
+
+  //
 
   updateFormList(selectedIngredients);
 

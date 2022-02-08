@@ -147,6 +147,16 @@ class Ingredient {
   constructor(name, img) {
     (this.name = name), (this.img = img || require("../css/images/kip.jpg"));
   }
+  createDom(parent) {
+    let card = document.createElement("div");
+
+    card.textContent = this.name;
+    card.style.backgroundColor = "beige";
+
+    card.classList.add("ingredients");
+    card.classList.add("selected");
+    parent.appendChild(card);
+  }
 }
 
 function containsAll(needed, owned) {
