@@ -165,7 +165,7 @@ function addIng(input, ingredientArray, parent) {
 
 //
 
-function renderForm(selectedIngredients) {
+function renderFormAdd(selectedIngredients) {
   let containerDishes = document.querySelector(".container-info-main");
   let containerIngredients = document.querySelector(".container-ingredients");
   emptyNode(containerDishes);
@@ -195,8 +195,6 @@ function renderForm(selectedIngredients) {
   ingredientUL.className = "form-ingredients-list";
   ingredientDiv.appendChild(ingredientUL);
 
-  //
-
   let addIngredient = document.createElement("input");
   addIngredient.id = "form-input-add-ingredient";
   addIngredient.setAttribute("placeholder", "Enter New Ingredient");
@@ -205,8 +203,6 @@ function renderForm(selectedIngredients) {
   });
   ingredientDiv.appendChild(addIngredient);
 
-  //
-
   updateFormList(selectedIngredients);
 
   let addButton = document.createElement("span");
@@ -214,6 +210,54 @@ function renderForm(selectedIngredients) {
   addButton.classList.add("material-icons-outlined");
   addButton.textContent = "check";
   form.appendChild(addButton);
+}
+
+function renderFormEdit(dishObject, selectedIngredients) {
+  let containerDishes = document.querySelector(".container-info-main");
+  let containerIngredients = document.querySelector(".container-ingredients");
+  emptyNode(containerDishes);
+
+  let form = document.createElement("form");
+  containerDishes.appendChild(form);
+
+  //
+  form.setAttribute("action", "javascript:void(0)");
+  form.setAttribute("method", "post");
+  //
+
+  let label = document.createElement("label");
+  label.setAttribute("for", "form-input-edit");
+  let input = document.createElement("input");
+  input.id = "form-input-edit";
+  input.value = `${dishObject.name}`;
+  input.setAttribute("placeholder", "Enter New Dish Name");
+  form.appendChild(label);
+  form.appendChild(input);
+
+  let ingredientDiv = document.createElement("div");
+  ingredientDiv.className = "form-ingredients-container";
+  ingredientDiv.textContent = "Ingredients:";
+  form.appendChild(ingredientDiv);
+
+  let ingredientUL = document.createElement("ul");
+  ingredientUL.className = "form-ingredients-list";
+  ingredientDiv.appendChild(ingredientUL);
+
+  let addIngredient = document.createElement("input");
+  addIngredient.id = "form-input-edit-ingredient";
+  addIngredient.setAttribute("placeholder", "Enter New Ingredient");
+  addIngredient.addEventListener("blur", () => {
+    addIng(addIngredient, totalIngredients, containerIngredients);
+  });
+  ingredientDiv.appendChild(addIngredient);
+
+  updateFormList(selectedIngredients);
+
+  let submitEdit = document.createElement("span");
+  submitEdit.className = "submit-button-edit";
+  submitEdit.classList.add("material-icons-outlined");
+  submitEdit.textContent = "check";
+  form.appendChild(submitEdit);
 }
 
 function updateFormList(selectedIngredients) {
@@ -238,6 +282,16 @@ function unSelect(nodelist) {
   }
 }
 
+function selectObjectIngredients(nodelist, dishObject) {
+  unSelect(nodelist);
+
+  for (let i = 0; i < nodelist.length; i++) {
+    dishObject.ingredients.includes(nodelist[i].textContent)
+      ? nodelist[i].classList.add("selected")
+      : nodelist[i].classList.remove("selected");
+  }
+}
+
 export {
   renderIngredients,
   selectIngredient,
@@ -247,7 +301,9 @@ export {
   renderAllDishes,
   filterCurrentIngredients,
   filterCurrentDishes,
-  renderForm,
+  renderFormAdd,
+  renderFormEdit,
   updateFormList,
   unSelect,
+  selectObjectIngredients,
 };

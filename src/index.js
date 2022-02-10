@@ -16,9 +16,11 @@ import {
   renderAllDishes,
   filterCurrentIngredients,
   filterCurrentDishes,
-  renderForm,
+  renderFormAdd,
+  renderFormEdit,
   updateFormList,
   unSelect,
+  selectObjectIngredients,
 } from "../src/modules/dom.js";
 
 let body = document.getElementsByTagName("body")[0];
@@ -59,7 +61,7 @@ containerIngredients.addEventListener("click", (e) => {
 });
 
 addButton.addEventListener("click", () => {
-  renderForm(selectedIngredients("selected"));
+  renderFormAdd(selectedIngredients("selected"));
 });
 
 seeButton.addEventListener("click", () => {
@@ -89,5 +91,13 @@ body.addEventListener("click", (e) => {
   }
 
   if (e.target.id === "edit-button") {
+    let dishName = e.target.previousSibling.textContent;
+    let allDishCards = document.querySelectorAll(".ingredients");
+
+    let dish = arrayOfRecipes.find((dish) => dish.name.includes(dishName));
+
+    selectObjectIngredients(allDishCards, dish);
+
+    renderFormEdit(dish, selectedIngredients("selected"));
   }
 });
