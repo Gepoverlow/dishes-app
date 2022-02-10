@@ -124,3 +124,14 @@ div > ul > li {
   padding-bottom: 15px;
   font-size: 20px;
 }
+
+.dish-header {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.dish-header > span {
+  font-size: 25px;
+}

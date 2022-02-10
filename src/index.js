@@ -87,4 +87,7 @@ body.addEventListener("click", (e) => {
       updateFormList(selectedIngredients("selected"));
     }
   }
+
+  if (e.target.id === "edit-button") {
+  }
 });

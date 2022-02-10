@@ -60,6 +60,11 @@ function renderAllDishes(dishes, selectedIngredients, availableDishes) {
     let dishDiv = document.createElement("div");
     containerDishes.appendChild(dishDiv);
 
+    let dishHeader = document.createElement("div");
+    dishHeader.className = "dish-header";
+    dishDiv.appendChild(dishHeader);
+    //
+
     let dishName = document.createElement("h3");
     dishName.classList.add("dishH3");
     dishName.textContent = dishes[i].name;
@@ -68,7 +73,16 @@ function renderAllDishes(dishes, selectedIngredients, availableDishes) {
       ? dishName.classList.add("available")
       : dishName.classList.remove("available");
 
-    dishDiv.appendChild(dishName);
+    dishHeader.appendChild(dishName);
+
+    let editIcon = document.createElement("span");
+    editIcon.id = "edit-button";
+    editIcon.className = "material-icons-outlined";
+    editIcon.textContent = "edit";
+
+    dishHeader.appendChild(editIcon);
+
+    //
 
     let dishIngredientsContainer = document.createElement("div");
     dishIngredientsContainer.classList.add("hidden");
