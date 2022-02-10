@@ -148,8 +148,6 @@ function emptyNode(node) {
   }
 }
 
-//
-
 function addIng(input, ingredientArray, parent) {
   if (input.value !== "") {
     let newIngredient = new Ingredient(`${input.value}`);
@@ -162,8 +160,6 @@ function addIng(input, ingredientArray, parent) {
     updateFormList(selectedIngredients("selected"));
   }
 }
-
-//
 
 function renderFormAdd(selectedIngredients) {
   let containerDishes = document.querySelector(".container-info-main");

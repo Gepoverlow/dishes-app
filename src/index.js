@@ -6,6 +6,8 @@ import {
   filteredDishName,
   Dish,
   Ingredient,
+  findIndex,
+  updateDishArray,
 } from "../src/modules/logic.js";
 import {
   renderIngredients,
@@ -28,6 +30,7 @@ let containerIngredients = document.querySelector(".container-ingredients");
 
 let addButton = document.getElementById("add-button");
 let seeButton = document.getElementById("see-button");
+let clickedDish = undefined;
 
 window.addEventListener("load", () => {
   renderIngredients(totalIngredients);
@@ -94,10 +97,30 @@ body.addEventListener("click", (e) => {
     let dishName = e.target.previousSibling.textContent;
     let allDishCards = document.querySelectorAll(".ingredients");
 
-    let dish = arrayOfRecipes.find((dish) => dish.name.includes(dishName));
+    clickedDish = arrayOfRecipes.find((dish) => dish.name === dishName);
 
-    selectObjectIngredients(allDishCards, dish);
+    console.log(clickedDish);
 
-    renderFormEdit(dish, selectedIngredients("selected"));
+    selectObjectIngredients(allDishCards, clickedDish);
+
+    renderFormEdit(clickedDish, selectedIngredients("selected"));
+  }
+
+  if (e.target.className === "submit-button-edit material-icons-outlined") {
+    e.preventDefault();
+    let input = document.getElementById("form-input-edit").value;
+    let selectedItems = document.querySelectorAll(".selected");
+
+    let index = findIndex(clickedDish.id, arrayOfRecipes);
+
+    updateDishArray(arrayOfRecipes, index, input);
+    unSelect(selectedItems);
+    renderAllDishes(
+      arrayOfRecipes,
+      selectedIngredients("selected"),
+      filteredDishName(
+        filterDishes(arrayOfRecipes, selectedIngredients("selected"))
+      )
+    );
   }
 });

@@ -2,18 +2,22 @@ let arrayOfRecipes = [
   {
     name: "Arroz con Pollo",
     ingredients: ["Chicken", "Rice", "Mayo"],
+    id: createId(),
   },
   {
     name: "Fideos con Salsa",
     ingredients: ["Noodles", "Tomato Sause"],
+    id: createId(),
   },
   {
     name: "Hamburgesas",
     ingredients: ["Meat", "Bread", "Onion"],
+    id: createId(),
   },
   {
     name: "Ensalada de primavera",
     ingredients: ["Noodles", "Mayo", "Tuna", "Corn"],
+    id: createId(),
   },
 ];
 
@@ -136,10 +140,33 @@ let totalIngredients = [
   },
 ];
 
+function createId() {
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  const length = 5;
+  let randomStr = "";
+
+  for (let i = 0; i < length; i++) {
+    const randomNum = Math.floor(Math.random() * characters.length);
+    randomStr += characters[randomNum];
+  }
+  return randomStr;
+}
+
+function findIndex(dishId, array) {
+  let elementPos = array
+    .map(function (x) {
+      return x.id;
+    })
+    .indexOf(`${dishId}`);
+
+  return elementPos;
+}
+
 class Dish {
   constructor(name, ingredients) {
     this.name = name;
     this.ingredients = ingredients;
+    this.id = createId();
   }
 }
 
@@ -175,6 +202,10 @@ function filteredDishName(arr) {
   return arr.map((dish) => dish.name);
 }
 
+function updateDishArray(array, index, input) {
+  array[index].name = input;
+}
+
 export {
   filterDishes,
   arrayOfRecipes,
@@ -182,4 +213,6 @@ export {
   filteredDishName,
   Dish,
   Ingredient,
+  findIndex,
+  updateDishArray,
 };
