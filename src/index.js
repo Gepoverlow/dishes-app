@@ -99,8 +99,6 @@ body.addEventListener("click", (e) => {
 
     clickedDish = arrayOfRecipes.find((dish) => dish.name === dishName);
 
-    console.log(clickedDish);
-
     selectObjectIngredients(allDishCards, clickedDish);
 
     renderFormEdit(clickedDish, selectedIngredients("selected"));
@@ -108,13 +106,18 @@ body.addEventListener("click", (e) => {
 
   if (e.target.className === "submit-button-edit material-icons-outlined") {
     e.preventDefault();
+
     let input = document.getElementById("form-input-edit").value;
     let selectedItems = document.querySelectorAll(".selected");
+    let selectedArray = selectedIngredients("selected");
 
     let index = findIndex(clickedDish.id, arrayOfRecipes);
 
-    updateDishArray(arrayOfRecipes, index, input);
+    updateDishArray(arrayOfRecipes, index, input, selectedArray);
+
     unSelect(selectedItems);
+    updateFormList(selectedArray);
+
     renderAllDishes(
       arrayOfRecipes,
       selectedIngredients("selected"),

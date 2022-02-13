@@ -202,8 +202,9 @@ function filteredDishName(arr) {
   return arr.map((dish) => dish.name);
 }
 
-function updateDishArray(array, index, input) {
+function updateDishArray(array, index, input, ingredients) {
   array[index].name = input;
+  array[index].ingredients = ingredients;
 }
 
 export {
