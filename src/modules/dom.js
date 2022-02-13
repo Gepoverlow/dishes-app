@@ -82,6 +82,13 @@ function renderAllDishes(dishes, selectedIngredients, availableDishes) {
 
     dishHeader.appendChild(editIcon);
 
+    let deleteIcon = document.createElement("span");
+    deleteIcon.id = "delete-button";
+    deleteIcon.className = "material-icons-outlined";
+    deleteIcon.textContent = "clear";
+
+    dishHeader.appendChild(deleteIcon);
+
     //
 
     let dishIngredientsContainer = document.createElement("div");

@@ -8,6 +8,7 @@ import {
   Ingredient,
   findIndex,
   updateDishArray,
+  deleteDish,
 } from "../src/modules/logic.js";
 import {
   renderIngredients,
@@ -117,6 +118,26 @@ body.addEventListener("click", (e) => {
 
     unSelect(selectedItems);
     updateFormList(selectedArray);
+
+    renderAllDishes(
+      arrayOfRecipes,
+      selectedIngredients("selected"),
+      filteredDishName(
+        filterDishes(arrayOfRecipes, selectedIngredients("selected"))
+      )
+    );
+  }
+
+  if (e.target.id === "delete-button") {
+    let selectedItems = document.querySelectorAll(".selected");
+    let dishName = e.target.previousSibling.previousSibling.textContent;
+
+    clickedDish = arrayOfRecipes.find((dish) => dish.name === dishName);
+
+    let index = findIndex(clickedDish.id, arrayOfRecipes);
+
+    deleteDish(arrayOfRecipes, index);
+    unSelect(selectedItems);
 
     renderAllDishes(
       arrayOfRecipes,

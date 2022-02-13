@@ -207,6 +207,10 @@ function updateDishArray(array, index, input, ingredients) {
   array[index].ingredients = ingredients;
 }
 
+function deleteDish(array, index) {
+  return array.splice(index, 1);
+}
+
 export {
   filterDishes,
   arrayOfRecipes,
@@ -216,4 +220,5 @@ export {
   Ingredient,
   findIndex,
   updateDishArray,
+  deleteDish,
 };
