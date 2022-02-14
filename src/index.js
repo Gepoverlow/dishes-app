@@ -26,14 +26,18 @@ import {
   updateFormList,
   unSelect,
   selectObjectIngredients,
+  toggleNav,
 } from "../src/modules/dom.js";
 
 let body = document.getElementsByTagName("body")[0];
 let containerIngredients = document.querySelector(".container-ingredients");
+let containerInfo = document.querySelector(".container-info");
 
 let addButton = document.getElementById("add-button");
 let seeButton = document.getElementById("see-button");
+let menuButton = document.getElementById("open-info-button");
 let clickedDish = undefined;
+let nav = false;
 
 window.addEventListener("load", () => {
   renderIngredients(totalIngredients);
@@ -78,6 +82,18 @@ seeButton.addEventListener("click", () => {
       filterDishes(arrayOfRecipes, selectedIngredients("selected"))
     )
   );
+});
+
+menuButton.addEventListener("click", () => {
+  if (!nav) {
+    containerInfo.style.width = "250px";
+    containerIngredients.style.marginLeft = "250px";
+    nav = true;
+  } else {
+    containerInfo.style.width = "0px";
+    containerIngredients.style.marginLeft = "0px";
+    nav = false;
+  }
 });
 
 body.addEventListener("click", (e) => {
