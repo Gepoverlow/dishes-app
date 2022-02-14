@@ -20,8 +20,10 @@ body {
 }
 
 .container-top {
-  width: 100vw;
-  height: 50px;
+  position: fixed;
+  z-index: 1;
+  /* width: 80px;
+  height: 50px; */
   background-color: grey;
 }
 
@@ -68,7 +70,6 @@ body {
   place-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 100vh;
   height: 100vh;
   overflow: scroll;
 }
