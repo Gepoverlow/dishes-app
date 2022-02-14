@@ -86,12 +86,12 @@ seeButton.addEventListener("click", () => {
 
 menuButton.addEventListener("click", () => {
   if (!nav) {
-    containerInfo.style.width = "250px";
-    containerIngredients.style.marginLeft = "250px";
+    containerInfo.style.width = "500px";
+    containerInfo.style.padding = "20px";
     nav = true;
   } else {
     containerInfo.style.width = "0px";
-    containerIngredients.style.marginLeft = "0px";
+    containerInfo.style.padding = "0px";
     nav = false;
   }
 });
