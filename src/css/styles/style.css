@@ -8,7 +8,8 @@ html {
 }
 
 body {
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: 100%;
   overflow-x: hidden;
 }
 
@@ -22,9 +23,12 @@ body {
   display: flex;
   flex-direction: column;
   background-color: sienna;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: 100vh;
   min-width: 25vw;
   padding: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .container-info-header {
@@ -32,8 +36,9 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-bottom: 20px;
-  min-height: 20vh;
+  margin-bottom: 20px;
+  min-height: 10vh;
+  border-bottom: 2px solid black;
 }
 
 .container-info-main {
@@ -53,7 +58,9 @@ body {
   place-items: center;
   justify-content: center;
   min-width: 75vw;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: 100vh;
+  overflow: scroll;
 }
 
 .ingredients {
@@ -136,6 +143,10 @@ div > ul > li {
 
 .dish-header > span {
   font-size: 25px;
+}
+
+#see-button {
+  padding-right: 20px;
 }
 
 /* .hidden {

@@ -19,6 +19,16 @@ let arrayOfRecipes = [
     ingredients: ["Noodles", "Mayo", "Tuna", "Corn"],
     id: createId(),
   },
+  {
+    name: "Pure de Patatas",
+    ingredients: ["Milk", "Potato", "Tuna", "Corn"],
+    id: createId(),
+  },
+  {
+    name: "Ensalada de primavera",
+    ingredients: ["Noodles", "Mayo", "Tuna", "Corn"],
+    id: createId(),
+  },
 ];
 
 let totalIngredients = [
