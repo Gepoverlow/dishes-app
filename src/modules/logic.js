@@ -1,11 +1,11 @@
 let arrayOfRecipes = [
   {
-    name: "Arroz con Pollo",
+    name: "Arroz con pollo",
     ingredients: ["Chicken", "Rice", "Mayo"],
     id: createId(),
   },
   {
-    name: "Fideos con Salsa",
+    name: "Fideos con salsa",
     ingredients: ["Noodles", "Tomato Sause"],
     id: createId(),
   },
@@ -20,12 +20,12 @@ let arrayOfRecipes = [
     id: createId(),
   },
   {
-    name: "Pure de Patatas",
+    name: "Pure de patatas",
     ingredients: ["Milk", "Potato", "Tuna", "Corn"],
     id: createId(),
   },
   {
-    name: "Ensalada de primavera",
+    name: "Another Dish",
     ingredients: ["Noodles", "Mayo", "Tuna", "Corn"],
     id: createId(),
   },
@@ -221,6 +221,25 @@ function deleteDish(array, index) {
   return array.splice(index, 1);
 }
 
+function capitalize(string) {
+  let trim = string.trim().toLowerCase();
+  let capital = trim.slice(0, 1).toUpperCase();
+  let capitalized = trim.replace(trim[0], capital);
+
+  return capitalized;
+}
+
+function checkIfExists(array, string) {
+  let search = array.find((dish) => dish.name === string);
+
+  if (search === undefined) {
+    return true;
+  } else {
+    alert("that dish already exists!");
+    return false;
+  }
+}
+
 export {
   filterDishes,
   arrayOfRecipes,
@@ -231,4 +250,6 @@ export {
   findIndex,
   updateDishArray,
   deleteDish,
+  capitalize,
+  checkIfExists,
 };

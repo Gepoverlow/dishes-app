@@ -9,6 +9,8 @@ import {
   findIndex,
   updateDishArray,
   deleteDish,
+  capitalize,
+  checkIfExists,
 } from "../src/modules/logic.js";
 import {
   renderIngredients,
@@ -81,11 +83,17 @@ seeButton.addEventListener("click", () => {
 body.addEventListener("click", (e) => {
   if (e.target.className === "submit-button material-icons-outlined") {
     e.preventDefault();
+
     let input = document.getElementById("form-input-add");
     let selectedItems = document.querySelectorAll(".selected");
+    let capitalInput = capitalize(`${input.value}`);
 
-    if (input.value !== "" && selectedIngredients("selected").length !== 0) {
-      let dish = new Dish(`${input.value}`, selectedIngredients("selected"));
+    if (
+      input.value !== "" &&
+      checkIfExists(arrayOfRecipes, capitalInput) &&
+      selectedIngredients("selected").length !== 0
+    ) {
+      let dish = new Dish(`${capitalInput}`, selectedIngredients("selected"));
       arrayOfRecipes.push(dish);
 
       input.value = "";
@@ -108,24 +116,27 @@ body.addEventListener("click", (e) => {
   if (e.target.className === "submit-button-edit material-icons-outlined") {
     e.preventDefault();
 
-    let input = document.getElementById("form-input-edit").value;
+    let input = document.getElementById("form-input-edit");
     let selectedItems = document.querySelectorAll(".selected");
-    let selectedArray = selectedIngredients("selected");
+    let capitalInput = capitalize(`${input.value}`);
 
-    let index = findIndex(clickedDish.id, arrayOfRecipes);
+    if (input.value !== "" && selectedIngredients("selected").length !== 0) {
+      let selectedArray = selectedIngredients("selected");
+      let index = findIndex(clickedDish.id, arrayOfRecipes);
 
-    updateDishArray(arrayOfRecipes, index, input, selectedArray);
+      updateDishArray(arrayOfRecipes, index, capitalInput, selectedArray);
 
-    unSelect(selectedItems);
-    updateFormList(selectedArray);
+      unSelect(selectedItems);
+      updateFormList(selectedArray);
 
-    renderAllDishes(
-      arrayOfRecipes,
-      selectedIngredients("selected"),
-      filteredDishName(
-        filterDishes(arrayOfRecipes, selectedIngredients("selected"))
-      )
-    );
+      renderAllDishes(
+        arrayOfRecipes,
+        selectedIngredients("selected"),
+        filteredDishName(
+          filterDishes(arrayOfRecipes, selectedIngredients("selected"))
+        )
+      );
+    }
   }
 
   if (e.target.id === "delete-button") {
