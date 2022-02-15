@@ -180,7 +180,10 @@ body.addEventListener("click", (e) => {
 });
 
 containerInfo.addEventListener("click", (e) => {
-  if (e.target.className === "dishH3") {
+  if (
+    e.target.className === "dishH3" ||
+    e.target.className === "dishH3 available"
+  ) {
     let list = e.target.parentNode.nextElementSibling;
     list.className === "hidden"
       ? (list.className = "show")
