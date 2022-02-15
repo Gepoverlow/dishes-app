@@ -32,6 +32,7 @@ import {
 let body = document.getElementsByTagName("body")[0];
 let containerIngredients = document.querySelector(".container-ingredients");
 let containerInfo = document.querySelector(".container-info");
+let containerInfoMain = document.querySelector(".container-info-main");
 
 let addButton = document.getElementById("add-button");
 let seeButton = document.getElementById("see-button");
@@ -175,5 +176,14 @@ body.addEventListener("click", (e) => {
         filterDishes(arrayOfRecipes, selectedIngredients("selected"))
       )
     );
+  }
+});
+
+containerInfo.addEventListener("click", (e) => {
+  if (e.target.className === "dishH3") {
+    let list = e.target.parentNode.nextElementSibling;
+    list.className === "hidden"
+      ? (list.className = "show")
+      : (list.className = "hidden");
   }
 });

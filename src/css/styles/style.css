@@ -22,7 +22,8 @@ body {
 .container-top {
   position: fixed;
   z-index: 1;
-  background-color: grey;
+  background-color: sienna;
+  border-radius: 50%;
 }
 
 .container-main {
@@ -150,9 +151,22 @@ div > ul > li {
 }
 
 #see-button {
-  padding-right: 20px;
+  padding-right: 5px;
 }
 
 .container-info-main > div {
   overflow-x: scroll;
+}
+
+#open-info-button {
+  background-color: transparent;
+  padding: 7px;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
 }
