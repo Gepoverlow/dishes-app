@@ -9,7 +9,7 @@ html {
 
 body {
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .container-all {
@@ -22,8 +22,6 @@ body {
 .container-top {
   position: fixed;
   z-index: 1;
-  /* width: 80px;
-  height: 50px; */
   background-color: grey;
 }
 
@@ -34,7 +32,6 @@ body {
 
 .container-info {
   display: flex;
-  /* flex-shrink: 0; */
   flex-direction: column;
   background-color: sienna;
   height: 100vh;
@@ -42,6 +39,7 @@ body {
   overflow-y: scroll;
   overflow-x: scroll;
   transition: 0.5s;
+  font-size: clamp(0.75rem, 1.9vw, 1.25rem);
 }
 
 .container-info-header {
@@ -57,7 +55,6 @@ body {
 .container-info-main {
   display: flex;
   flex-direction: column;
-  overflow: visible;
 }
 
 .container-ingredients {
@@ -79,7 +76,7 @@ body {
   justify-content: center;
   align-items: center;
   color: black;
-  font-size: 20px;
+  /* font-size: 20px; */
   padding: 5px;
   padding: 1em;
   background-size: cover;
@@ -95,8 +92,8 @@ body {
 
 .material-icons-outlined {
   cursor: pointer;
-  padding-left: 10px;
-  font-size: 50px;
+  padding-left: 5px;
+  /* font-size: 30px; */
 }
 
 .container-info-main > div {
@@ -118,7 +115,7 @@ div > ul > li {
 
 #form-input-add,
 #form-input-edit {
-  font-size: 22px;
+  font-size: clamp(0.75rem, 1.9vw, 1.25rem);
   background-color: transparent;
   border: 0;
   border-bottom: 1px solid black;
@@ -132,9 +129,8 @@ div > ul > li {
   border: 0;
   border-bottom: 1px solid black;
   outline: 0;
-  margin-left: 40px;
   margin-top: 7px;
-  font-size: 17px;
+  font-size: clamp(0.75rem, 1.9vw, 1.25rem);
 }
 
 .form-ingredients-container {
@@ -149,14 +145,14 @@ div > ul > li {
   align-items: center;
 }
 
-.dish-header > span {
-  font-size: 25px;
+.form-ingredients-list {
+  padding-left: 0;
 }
 
 #see-button {
   padding-right: 20px;
 }
 
-/* .hidden {
-  display: none;
-} */
+.container-info-main > div {
+  overflow-x: scroll;
+}
