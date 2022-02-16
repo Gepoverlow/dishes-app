@@ -26,7 +26,6 @@ import {
   updateFormList,
   unSelect,
   selectObjectIngredients,
-  toggleNav,
 } from "../src/modules/dom.js";
 
 let body = document.getElementsByTagName("body")[0];
@@ -185,8 +184,8 @@ containerInfo.addEventListener("click", (e) => {
     e.target.className === "dishH3 available"
   ) {
     let list = e.target.parentNode.nextElementSibling;
-    list.className === "hidden"
-      ? (list.className = "show")
-      : (list.className = "hidden");
+    list.className === "dish-ingredients-container hidden"
+      ? (list.className = "dish-ingredients-container show")
+      : (list.className = "dish-ingredients-container hidden");
   }
 });

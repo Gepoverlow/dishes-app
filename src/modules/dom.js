@@ -92,6 +92,7 @@ function renderAllDishes(dishes, selectedIngredients, availableDishes) {
     //
 
     let dishIngredientsContainer = document.createElement("div");
+    dishIngredientsContainer.className = "dish-ingredients-container";
     dishIngredientsContainer.classList.add("hidden");
     dishDiv.appendChild(dishIngredientsContainer);
 
@@ -295,22 +296,6 @@ function selectObjectIngredients(nodelist, dishObject) {
   }
 }
 
-function openSlideMenu(infoDOM, mainDom) {
-  infoDOM.style.width = "250px";
-  mainDom.style.marginLeft = "250px";
-  nav = true;
-}
-
-function closeSlideMenu(infoDOM, mainDom) {
-  infoDOM.style.width = "0px";
-  mainDom.style.marginLeft = "0px";
-  nav = false;
-}
-
-function toggleNav(infoDOM, mainDom, nav) {
-  nav ? openSlideMenu(infoDOM, mainDom) : closeSlideMenu(infoDOM, mainDom);
-}
-
 export {
   renderIngredients,
   selectIngredient,
@@ -325,5 +310,4 @@ export {
   updateFormList,
   unSelect,
   selectObjectIngredients,
-  toggleNav,
 };
