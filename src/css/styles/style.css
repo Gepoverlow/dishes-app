@@ -142,8 +142,13 @@ div > ul > li {
 .dish-header {
   display: flex;
   flex-direction: row;
-
+  justify-content: space-between;
   align-items: center;
+}
+
+.icons-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .form-ingredients-list {

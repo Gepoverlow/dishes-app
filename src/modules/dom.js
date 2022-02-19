@@ -75,19 +75,23 @@ function renderAllDishes(dishes, selectedIngredients, availableDishes) {
 
     dishHeader.appendChild(dishName);
 
+    let iconsContainer = document.createElement("div");
+    iconsContainer.className = "icons-container";
+    dishHeader.appendChild(iconsContainer);
+
     let editIcon = document.createElement("span");
     editIcon.id = "edit-button";
     editIcon.className = "material-icons-outlined";
     editIcon.textContent = "edit";
 
-    dishHeader.appendChild(editIcon);
+    iconsContainer.appendChild(editIcon);
 
     let deleteIcon = document.createElement("span");
     deleteIcon.id = "delete-button";
     deleteIcon.className = "material-icons-outlined";
     deleteIcon.textContent = "clear";
 
-    dishHeader.appendChild(deleteIcon);
+    iconsContainer.appendChild(deleteIcon);
 
     //
 

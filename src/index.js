@@ -121,7 +121,7 @@ body.addEventListener("click", (e) => {
   }
 
   if (e.target.id === "edit-button") {
-    let dishName = e.target.previousSibling.textContent;
+    let dishName = e.target.parentNode.previousSibling.textContent;
     let allDishCards = document.querySelectorAll(".ingredients");
 
     clickedDish = arrayOfRecipes.find((dish) => dish.name === dishName);
@@ -159,7 +159,7 @@ body.addEventListener("click", (e) => {
 
   if (e.target.id === "delete-button") {
     let selectedItems = document.querySelectorAll(".selected");
-    let dishName = e.target.previousSibling.previousSibling.textContent;
+    let dishName = e.target.parentNode.previousSibling.textContent;
 
     clickedDish = arrayOfRecipes.find((dish) => dish.name === dishName);
 
