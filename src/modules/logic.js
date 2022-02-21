@@ -208,7 +208,9 @@ class Ingredient {
 }
 
 function containsAll(needed, owned) {
-  return needed.ingredients.every((i) => owned.includes(i));
+  if (needed.ingredients.length !== 0) {
+    return needed.ingredients.every((i) => owned.includes(i));
+  }
 }
 
 function filterDishes(recipes, ingredients) {
