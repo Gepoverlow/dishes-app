@@ -172,6 +172,16 @@ function findIndex(dishId, array) {
   return elementPos;
 }
 
+function findIndexIngredient(ingredientName, array) {
+  let elementPos = array
+    .map(function (x) {
+      return x.name;
+    })
+    .indexOf(`${ingredientName}`);
+
+  return elementPos;
+}
+
 class Dish {
   constructor(name, ingredients) {
     this.name = name;
@@ -182,13 +192,14 @@ class Dish {
 
 class Ingredient {
   constructor(name, img) {
-    (this.name = name), (this.img = img || require("../css/images/kip.jpg"));
+    (this.name = name),
+      (this.img = img || require("../css/images/ingredients.jpg"));
   }
   createDom(parent) {
     let card = document.createElement("div");
 
     card.textContent = this.name;
-    card.style.backgroundColor = "beige";
+    card.style.backgroundImage = `url(${this.img})`;
 
     card.classList.add("ingredients");
     card.classList.add("selected");
@@ -240,6 +251,10 @@ function checkIfExists(array, string) {
   }
 }
 
+function deleteIngredient(array, index) {
+  return array.splice(index, 1);
+}
+
 export {
   filterDishes,
   arrayOfRecipes,
@@ -252,4 +267,6 @@ export {
   deleteDish,
   capitalize,
   checkIfExists,
+  deleteIngredient,
+  findIndexIngredient,
 };

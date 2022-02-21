@@ -7,10 +7,12 @@ import {
   Dish,
   Ingredient,
   findIndex,
+  findIndexIngredient,
   updateDishArray,
   deleteDish,
   capitalize,
   checkIfExists,
+  deleteIngredient,
 } from "../src/modules/logic.js";
 import {
   renderIngredients,
@@ -34,12 +36,16 @@ let containerInfo = document.querySelector(".container-info");
 let containerInfoMain = document.querySelector(".container-info-main");
 
 let editContainer = document.querySelector(".editing-background");
+let editPopup = document.querySelector(".edit-ingredient-container");
+let editQuestion = document.querySelector(".edit-question");
 
 let addButton = document.getElementById("add-button");
 let seeButton = document.getElementById("see-button");
 let menuButton = document.getElementById("open-info-button");
 let clickedDish = undefined;
+let clickedIngredient = undefined;
 let nav = false;
+let divMouseDown;
 
 window.addEventListener("load", () => {
   renderIngredients(totalIngredients);
@@ -192,22 +198,27 @@ containerInfo.addEventListener("click", (e) => {
   }
 });
 
-let divMouseDown;
-
 containerIngredients.addEventListener("mousedown", (e) => {
-  console.log(e.target.className);
   divMouseDown = setTimeout(function () {
     if (
       e.target.className === "ingredients" ||
       e.target.className === "ingredients selected"
     ) {
+      clickedIngredient = findIndexIngredient(
+        `${e.target.innerText}`,
+        totalIngredients
+      );
       editContainer.style.display = "flex";
-      console.log(e.target.innerText);
+      editQuestion.textContent = `Would you like to delete ${e.target.innerText} ?`;
     } else if (e.target.nodeName === "P") {
-      console.log(e.target.parentNode.innerText);
+      clickedIngredient = findIndexIngredient(
+        `${e.target.parentNode.innerText}`,
+        totalIngredients
+      );
       editContainer.style.display = "flex";
+      editQuestion.textContent = `Would you like to delete ${e.target.parentNode.innerText} ?`;
     }
-  }, 2000);
+  }, 1500);
 });
 
 containerIngredients.addEventListener("mouseup", () => {
@@ -218,6 +229,17 @@ containerIngredients.addEventListener("mouseup", () => {
 
 editContainer.addEventListener("click", (e) => {
   if (e.target.className === "editing-background") {
+    editContainer.style.display = "none";
+  }
+
+  if (e.target.id === "cancel-button") {
+    editContainer.style.display = "none";
+  }
+
+  if (e.target.id === "confirm-button") {
+    deleteIngredient(totalIngredients, clickedIngredient);
+    renderIngredients(totalIngredients);
+    updateFormList(selectedIngredients("selected"));
     editContainer.style.display = "none";
   }
 });
