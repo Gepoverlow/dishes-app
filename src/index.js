@@ -237,9 +237,28 @@ editContainer.addEventListener("click", (e) => {
   }
 
   if (e.target.id === "confirm-button") {
+    arrayOfRecipes.forEach((dish) =>
+      dish.ingredients.includes(`${totalIngredients[clickedIngredient].name}`)
+        ? dish.ingredients.splice(
+            dish.ingredients.indexOf(
+              `${totalIngredients[clickedIngredient].name}`
+            ),
+            1
+          )
+        : null
+    );
     deleteIngredient(totalIngredients, clickedIngredient);
     renderIngredients(totalIngredients);
-    updateFormList(selectedIngredients("selected"));
+    filterCurrentIngredients(selectedIngredients("selected"));
+
+    renderAllDishes(
+      arrayOfRecipes,
+      selectedIngredients("selected"),
+      filteredDishName(
+        filterDishes(arrayOfRecipes, selectedIngredients("selected"))
+      )
+    );
+
     editContainer.style.display = "none";
   }
 });
