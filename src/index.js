@@ -33,6 +33,8 @@ let containerIngredients = document.querySelector(".container-ingredients");
 let containerInfo = document.querySelector(".container-info");
 let containerInfoMain = document.querySelector(".container-info-main");
 
+let editContainer = document.querySelector(".editing-background");
+
 let addButton = document.getElementById("add-button");
 let seeButton = document.getElementById("see-button");
 let menuButton = document.getElementById("open-info-button");
@@ -187,5 +189,35 @@ containerInfo.addEventListener("click", (e) => {
     list.className === "dish-ingredients-container hidden"
       ? (list.className = "dish-ingredients-container show")
       : (list.className = "dish-ingredients-container hidden");
+  }
+});
+
+let divMouseDown;
+
+containerIngredients.addEventListener("mousedown", (e) => {
+  console.log(e.target.className);
+  divMouseDown = setTimeout(function () {
+    if (
+      e.target.className === "ingredients" ||
+      e.target.className === "ingredients selected"
+    ) {
+      editContainer.style.display = "flex";
+      console.log(e.target.innerText);
+    } else if (e.target.nodeName === "P") {
+      console.log(e.target.parentNode.innerText);
+      editContainer.style.display = "flex";
+    }
+  }, 2000);
+});
+
+containerIngredients.addEventListener("mouseup", () => {
+  if (divMouseDown) {
+    clearTimeout(divMouseDown);
+  }
+});
+
+editContainer.addEventListener("click", (e) => {
+  if (e.target.className === "editing-background") {
+    editContainer.style.display = "none";
   }
 });

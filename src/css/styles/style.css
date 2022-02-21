@@ -202,3 +202,25 @@ div > ul > li {
     transform: rotateX(-90deg);
   }
 }
+
+.editing-background {
+  background-color: rgba(34, 31, 31, 0.5);
+  position: absolute;
+  z-index: 2;
+  height: 100vh;
+  width: 100vw;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.editing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 200px;
+
+  background-color: rgba(160, 142, 142, 0.9);
+}
